@@ -23,24 +23,23 @@ security patches.**
 
 If you discover vulnerabilities in Hemi, we encourage responsible disclosure of the vulnerability so that we can take
 steps to resolve the vulnerability as quickly as possible. We ask you to help us better protect Hemi and our users by
-reporting vulnerabilities through HackerOne. **Never report security vulnerabilities publicly, especially on GitHub
+reporting vulnerabilities through Bugcrowd. **Never report security vulnerabilities publicly, especially on GitHub
 issues.**
 
 When reporting a vulnerability, the more information you can provide, the faster we can triage and confirm the reported
 vulnerability. Reports with clear and concise reproduction steps and screenshots are highly valued.
 
 You can report a security vulnerability by:
-- [Submitting a report through Hemi's HackerOne VDP program](https://hackerone.com/hemi_labs_vdp)
+- [Submitting a report through Hemi's Bugcrowd program](https://bugcrowd.com/engagements/hemi)
 
 ## Responsible Disclosure
 
-- Please do not discuss any vulnerabilities outside of our HackerOne programs without express consent from Hemi Labs.
-- Follow our program [disclosure policy](https://hackerone.com/hemi_labs_vdp).
-- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/terms/disclosure-guidelines).
+- Please do not discuss any vulnerabilities outside our Bugcrowd program without express consent from Hemi Labs.
+- Follow our [program disclosure policy](https://bugcrowd.com/engagements/hemi).
 
 ## Policy
 
-Please see [Hemi's Safe Harbor Policy](https://hackerone.com/hemi_labs_vdp/safe_harbor).
+Please see [Hemi's Bugcrowd program](https://bugcrowd.com/engagements/hemi) for our policies.
 
 ## Conclusion
 
