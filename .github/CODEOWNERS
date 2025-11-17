@@ -1,0 +1,6 @@
+# This file exists to designate certain reviewers for certain areas of the
+# repository. This allows us to enhance security measures, streamline reviews
+# and help automate review requests.
+
+# Security policy file is maintained by SecOps.
+SECURITY.md @hemilabs/security
