@@ -1,0 +1,33 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: "Standard preset across hemilabs repositories",
+  extends: [
+    'config:best-practices',
+    ':configMigration',
+    ':pinVersions',
+    ':prConcurrentLimit10',
+    ':rebaseStalePrs',
+    'schedule:weekly',
+    'docker:enableMajor',
+    'docker:pinDigests',
+    'preview:dockerCompose',
+    'preview:dockerVersions',
+    'customManagers:dockerfileVersions',
+    'customManagers:githubActionsVersions',
+    'helpers:pinGitHubActionDigests',
+  ],
+  labels: [
+    'type: dependencies',
+  ],
+  minimumReleaseAge: '3 days',
+  osvVulnerabilityAlerts: true,
+  vulnerabilityAlerts: {
+    enabled: true,
+    addLabels: [
+      'type: security',
+    ],
+    additionalReviewers: [
+      'team:security',
+    ],
+  },
+}
