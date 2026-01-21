@@ -19,7 +19,7 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
       - uses: hemilabs/actions/setup-node-env@c86350368ebf1124e81813d1497fb44606f3b6c1 # v2.0.0
