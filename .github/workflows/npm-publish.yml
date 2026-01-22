@@ -26,4 +26,4 @@ jobs:
       - run: npm run --if-present prepublishOnly
       # Provenance is enabled by default in trusted publishing
       # See https://docs.npmjs.com/trusted-publishers#supported-cicd-providers
-      - run: npm publish
+      - run: npm publish --access public
