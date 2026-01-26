@@ -28,6 +28,8 @@ jobs:
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
       - uses: hemilabs/actions/setup-node-env@dbe5c7bf1c9de8910bd0268ac55a4e8043ef8a2d
+        with:
+          package-manager: pnpm
       - run: pnpm run --if-present format:check
       - run: pnpm run --if-present lint
       - run: pnpm run --if-present deps:check
@@ -43,6 +45,7 @@ jobs:
       - uses: hemilabs/actions/setup-node-env@dbe5c7bf1c9de8910bd0268ac55a4e8043ef8a2d
         with:
           node-version: ${{ matrix.node-version }}
+          package-manager: pnpm
       - run: pnpm run --if-present --recursive test
     strategy:
       matrix:
