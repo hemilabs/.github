@@ -11,6 +11,10 @@ on:
         description: Number of commits to fetch. 0 indicates all history for all branches and tags.
         default: 1
         type: number
+      package-manager:
+        description: The package manager to use (npm, pnpm).
+        default: "npm"
+        type: string
 
 jobs:
   publish-to-npm:
@@ -22,7 +26,10 @@ jobs:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@c86350368ebf1124e81813d1497fb44606f3b6c1 # v2.0.0
+      - uses: hemilabs/actions/setup-node-env@dbe5c7bf1c9de8910bd0268ac55a4e8043ef8a2d # v2.0.0
+        with:
+          package-manager: ${{ inputs.package-manager }}
+      # The below commands can be run with either npm or pnpm, as both support the same CLI
       - run: npm run --if-present prepublishOnly
       # Provenance is enabled by default in trusted publishing
       # See https://docs.npmjs.com/trusted-publishers#supported-cicd-providers
