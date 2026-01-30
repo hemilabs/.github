@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@dbe5c7bf1c9de8910bd0268ac55a4e8043ef8a2d
+      - uses: hemilabs/actions/setup-node-env@42a939f90638fa4c3f3820dbb9a3cdd8404a2590
         with:
           package-manager: pnpm
       - run: pnpm run --if-present format:check
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@dbe5c7bf1c9de8910bd0268ac55a4e8043ef8a2d
+      - uses: hemilabs/actions/setup-node-env@42a939f90638fa4c3f3820dbb9a3cdd8404a2590
         with:
           node-version: ${{ matrix.node-version }}
           package-manager: pnpm
