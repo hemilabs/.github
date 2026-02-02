@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@c86350368ebf1124e81813d1497fb44606f3b6c1 # v2
+      - uses: hemilabs/actions/setup-node-env@f570cfe74e72badeeb750c72dfabe9cbedaae4fc # v2.1.0
       - run: npm run --if-present format:check
       - run: npm run --if-present lint
       - run: npm run --if-present --include-workspace-root --workspaces deps:check
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@c86350368ebf1124e81813d1497fb44606f3b6c1 # v2.0.0
+      - uses: hemilabs/actions/setup-node-env@f570cfe74e72badeeb750c72dfabe9cbedaae4fc # v2.1.0
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm run --if-present --include-workspace-root --workspaces test
