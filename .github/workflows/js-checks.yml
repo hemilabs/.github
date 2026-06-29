@@ -16,32 +16,36 @@ on:
         default: "['']"
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   run-checks:
+    name: "run-checks"
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
       - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
       - run: npm run --if-present format:check
       - run: npm run --if-present lint
       - run: npm run --if-present --include-workspace-root --workspaces deps:check
       - run: npm run --if-present --include-workspace-root --workspaces build
+
   run-tests:
+    name: "run-tests"
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    strategy:
+      matrix:
+        node-version: ${{ fromJSON(inputs.node-versions) }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
       - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm run --if-present --include-workspace-root --workspaces test
-    strategy:
-      matrix:
-        node-version: ${{ fromJSON(inputs.node-versions) }}

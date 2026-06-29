@@ -16,25 +16,33 @@ on:
         default: "npm"
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   publish-to-npm:
+    name: "publish-to-npm"
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
+      id-token: write # Required to publish to npm using trusted publishing.
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
+
       - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
         with:
           package-manager: ${{ inputs.package-manager }}
+
       # Provenance is enabled by default in trusted publishing
       # See https://docs.npmjs.com/trusted-publishers#supported-cicd-providers
       - if: inputs.package-manager == 'npm'
         run: |
           npm run --if-present prepublishOnly
           npm publish --access public
+
       - if: inputs.package-manager == 'pnpm'
         run: |
           pnpm run --if-present prepublishOnly
