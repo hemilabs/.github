@@ -103,6 +103,7 @@ Please follow these steps to have your contribution considered by the maintainer
 
 - Follow all instructions in the Pull Request template.
 - Follow the style guides described above.
+- Sign your commits. All commits in the pull request must show as verified. To set this up, [generate a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key), [add it to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account) and [tell Git about your signing key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 - If the pull request features a UI improvement, please include a screenshot in order to let maintainers to have a glimpse of it.
 - After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing.
 
