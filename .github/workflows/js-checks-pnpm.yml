@@ -33,10 +33,11 @@ jobs:
       - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
         with:
           package-manager: pnpm
-      - run: pnpm run --if-present format:check
-      - run: pnpm run --if-present lint
-      - run: pnpm run --if-present deps:check
-      - run: pnpm run --if-present --recursive build
+      - parallel:
+          - run: pnpm run --if-present format:check
+          - run: pnpm run --if-present lint
+          - run: pnpm run --if-present deps:check
+          - run: pnpm run --if-present --recursive build
   run-tests:
     name: "run-tests"
     runs-on: ubuntu-latest
