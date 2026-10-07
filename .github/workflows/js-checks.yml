@@ -28,7 +28,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
+      - uses: hemilabs/actions/setup-node-env@34879d59453841c18fd53190b39251a5c566f8db # v3.0.0
       - parallel:
           - run: npm run --if-present format:check
           - run: npm run --if-present lint
@@ -46,7 +46,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
+      - uses: hemilabs/actions/setup-node-env@34879d59453841c18fd53190b39251a5c566f8db # v3.0.0
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm run --if-present --include-workspace-root --workspaces test
