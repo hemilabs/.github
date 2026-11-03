@@ -17,6 +17,10 @@ on:
         description: Array of Node versions to test with (JSON string)
         default: "['']"
         type: string
+      runs-on:
+        description: Runner label for the jobs
+        default: ubuntu-latest
+        type: string
 
 permissions:
   contents: read
@@ -24,7 +28,7 @@ permissions:
 jobs:
   run-checks:
     name: "run-checks"
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runs-on }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -40,7 +44,7 @@ jobs:
           - run: pnpm run --if-present --recursive build
   run-tests:
     name: "run-tests"
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runs-on }}
     strategy:
       matrix:
         node-version: ${{ fromJSON(inputs.node-versions) }}
