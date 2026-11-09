@@ -34,7 +34,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@34879d59453841c18fd53190b39251a5c566f8db # v3.0.0
+      - uses: hemilabs/actions/setup-node-env@4b975d74c198afc6b2908cea6b3948f9af0d1e6f # v3.1.0
         with:
           package-manager: pnpm
       - parallel:
@@ -53,7 +53,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
-      - uses: hemilabs/actions/setup-node-env@34879d59453841c18fd53190b39251a5c566f8db # v3.0.0
+      - uses: hemilabs/actions/setup-node-env@4b975d74c198afc6b2908cea6b3948f9af0d1e6f # v3.1.0
         with:
           node-version: ${{ matrix.node-version }}
           package-manager: pnpm
