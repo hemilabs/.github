@@ -34,9 +34,24 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: ${{ inputs.fetch-depth }}
+      - id: cache-key
+        run: |
+          echo "deps=$DEPS_HASH" >> "$GITHUB_OUTPUT"
+          echo "week=$(date -u +%G-W%V)" >> "$GITHUB_OUTPUT"
+        env:
+          DEPS_HASH: ${{ hashFiles('**/pnpm-lock.yaml', '**/package.json') }}
+        shell: bash
       - uses: hemilabs/actions/setup-node-env@4b975d74c198afc6b2908cea6b3948f9af0d1e6f # v3.1.0
         with:
           package-manager: pnpm
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            .eslintcache
+            node_modules/.cache
+          key: ${{ runner.os }}-eslint-prettier-${{ steps.cache-key.outputs.week }}-${{ steps.cache-key.outputs.deps }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-eslint-prettier-${{ steps.cache-key.outputs.week }}-${{ steps.cache-key.outputs.deps }}-
       - parallel:
           - run: pnpm run --if-present format:check
           - run: pnpm run --if-present lint
